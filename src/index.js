@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
 
-export const readFile = (file) => fs.readFileSync(path.resolve(process.cwd(), './__tests__/fixtures', file), 'utf-8');
+export const readFile = (file) => fs.readFileSync(path.resolve(process.cwd(), './__tests__/__fixtures__', file), 'utf-8');
 
 export const calcDiff = (file1, file2) => {
     const data1 = JSON.parse(readFile(file1));
