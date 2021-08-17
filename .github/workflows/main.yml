@@ -22,10 +22,10 @@ jobs:
       - name: Run eslint
         run: make lint
 
-      - name: Test & publish code coverage
-    uses: paambaati/codeclimate-action@v2.7.5
-    env:
-      CC_TEST_REPORTER_ID: 580c85882eb6b9122be234c582dc58f2252f5099b95ae734916aa14283130545
-    with:
-      coverageCommand: npm run coverage
-      debug: true
+      - name: test & code coverage
+        uses: paambaati/codeclimate-action@v2.4.0
+        env:
+          CC_TEST_REPORTER_ID: 580c85882eb6b9122be234c582dc58f2252f5099b95ae734916aa14283130545
+        with:
+          coverageCommand: make test-coverage
+          debug: true
