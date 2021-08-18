@@ -1,9 +1,9 @@
 import { getExt, readFile } from './utilities.js';
 import parse from './parsers.js';
 import calcDiff from './calcDiff.js';
-import formatPretty from './formatters/stylish.js';
+import render from './formatters/index.js';
 
-export default (file1, file2) => {
+export default (file1, file2, format = 'stylish') => {
   const data1 = readFile(file1);
   const data2 = readFile(file2);
   const ext1 = getExt(file1);
@@ -11,5 +11,5 @@ export default (file1, file2) => {
   const firstParsed = parse(data1, ext1);
   const secondParsed = parse(data2, ext2);
   const diff = calcDiff(firstParsed, secondParsed);
-  return formatPretty(diff);
+  return render(diff, format);
 };
